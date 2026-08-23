@@ -1,0 +1,71 @@
+About this installation
+=======================
+
+This installs the emulated Telesensory Systems Prose 2000 and makes its three English
+voices available to every SAPI 5 application on this computer - screen readers, reading
+tools, anything that uses Windows speech.
+
+What gets installed
+-------------------
+
+  * ProseHost.exe, which runs the original 1987 Prose 2000 firmware, and the six firmware
+    images it needs. No original hardware and no MAME installation is required.
+  * A 32-bit SAPI 5 interface, for 32-bit applications.
+  * A 64-bit SAPI 5 interface, for 64-bit applications.
+  * The Prose 2000 configuration utility, for trimming rate, pitch and volume.
+
+Both interfaces run the firmware in the same separate process, so a crash in the emulator
+cannot take down the application that was speaking. There is no helper process and no COM
+surrogate: the 32-bit interface spawns the same 64-bit emulator that the 64-bit interface
+does.
+
+The three voices
+----------------
+
+  Prose 2000         the default voice, about 130 Hz
+  Prose 2000 Deep    lower and heavier, about 105 Hz
+  Prose 2000 High    higher and lighter, about 170 Hz
+
+All three are English. The firmware contains one set of English letter-to-sound rules and
+no other language, so no other languages are possible.
+
+The voices are selected with the firmware's own ESC[<n>V command. The NVDA add-on this
+project builds on always sends ESC[0V and documents a single voice; the other two have
+been in the firmware all along.
+
+Requirements
+------------
+
+64-bit Windows. The emulator is a 64-bit program and there is no 32-bit build of it. The
+32-bit SAPI interface is still installed and still works - it is there so that 32-bit
+applications can use the voices, and it drives the same 64-bit emulator under WOW64.
+
+Administrator rights are required, because SAPI 5 only reads its list of voices from the
+machine-wide part of the registry. Two class registrations and one voice-list key are
+written per bitness; nothing else touches the machine-wide registry. Your own settings -
+rate, pitch, volume and the firmware extras - are kept under HKEY_CURRENT_USER and need no
+administrator rights to change.
+
+Logs
+----
+
+The installer writes a full log and saves a copy in the installation folder as
+install.log. The speech engine writes its own logs to:
+
+    %LOCALAPPDATA%\Prose2000 SAPI5\Logs
+
+Set PROSE2000_LOG_LEVEL to off, error, warn, info, debug or trace to change how much
+detail is recorded, and PROSE2000_LOG_DIR to write them somewhere else.
+
+A note on the firmware
+----------------------
+
+The Prose 2000 hardware and firmware were developed by Telesensory Systems Inc. and Speech
+Plus. The firmware remains proprietary and is not covered by the emulator's source licence.
+This installer packages firmware images that were supplied with an existing NVDA add-on; it
+does not grant any licence to them. Install this only on a machine where you are entitled
+to use that firmware.
+
+The emulator itself is by Andre Louis (github.com/OnjLouis/prose2000), and derives its
+board memory map, ROM layout and hardware clocks from MAME's Prose 2000 driver by Jonathan
+Gevaryahu, with thanks to Kevin Horton.

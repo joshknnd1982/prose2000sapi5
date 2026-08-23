@@ -1,0 +1,43 @@
+#include <windows.h>
+#include "prose_config_ids.h"
+
+// The dialog is deliberately empty. Every control is created in WM_INITDIALOG so that the
+// list of firmware parameters comes from the catalogue in the DLL rather than being
+// duplicated here, and so that tab order is exactly creation order.
+//
+// DS_CENTER is omitted because the window is resized to fit its contents and then centred
+// by hand once the real size is known.
+IDD_CONFIG DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+CAPTION "Prose 2000 Speech Settings"
+FONT 9, "Segoe UI", 400, 0, 1
+BEGIN
+END
+
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",      "Prose 2000 SAPI 5"
+            VALUE "FileDescription",  "Prose 2000 Speech Settings"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "Prose2000Config"
+            VALUE "OriginalFilename", "Prose2000Config.exe"
+            VALUE "ProductName",      "Prose 2000 SAPI 5"
+            VALUE "ProductVersion",   "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+// Common controls v6 and per-monitor DPI awareness.
+1 RT_MANIFEST "prose_config.manifest"

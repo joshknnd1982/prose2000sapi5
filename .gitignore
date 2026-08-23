@@ -1,0 +1,38 @@
+# Build trees and staging. output\ in particular holds directory junctions into bin\,
+# which git would happily follow and commit a second copy of the voice data through.
+build/
+build_x86/
+build_x64/
+output/
+
+# Build output. The installer ships as a release asset rather than in the repository;
+# tools\build_all.ps1 regenerates it in about two minutes. The accessibility probe is a
+# throwaway payload-less build of the same wizard, rebuilt whenever
+# tools\check_installer_a11y.ps1 runs.
+dist/
+
+# Test output. The harnesses regenerate these on every run; the samples kept in the
+# repository are the demonstration ones at samples\*.wav, samples\voices\ and the
+# before/after pair in samples\latency\.
+samples/fixed/
+samples/sapi/
+samples/staged/
+samples/staged_sapi32/
+samples/staged_sapi64/
+samples/probe/
+samples/probe3/
+samples/latency/raw_OK.wav
+samples/latency/raw_Cancel.wav
+samples/latency/raw_Documents_folder.wav
+samples/latency/trimmed_OK.wav
+samples/latency/trimmed_Cancel.wav
+samples/latency/trimmed_Documents_folder.wav
+samples/param_map*.txt
+
+# Upstream's own NVDA driver, kept locally as protocol reference only. It is Andre Louis's
+# code, not this project's, and the protocol it documents is described in docs\PARAMETERS.md
+# and implemented in src\prose_host.cpp.
+bin/prose2000_nvda_driver.py.txt
+
+__pycache__/
+*.log
