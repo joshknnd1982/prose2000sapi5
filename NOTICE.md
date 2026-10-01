@@ -1,11 +1,12 @@
 # Licensing and attribution
 
-Three different things ship in this repository under three different terms. Read this
+Four different things ship in this repository under four different terms. Read this
 before redistributing any of it.
 
 ## 1. The SAPI 5 engine, configuration utility, tools and installer
 
-Everything under `src/`, `tools/`, `installer/`, `docs/`, and the build scripts.
+Everything under `src/`, `tools/`, `installer/`, `docs/`, and the build scripts, except the
+files listed in section 4.
 
 Copyright (c) 2026 Josh Kennedy. Licensed under the **MIT License** — see
 [LICENSE](LICENSE).
@@ -45,10 +46,29 @@ repository. If you are the rights holder and want them removed, open an issue.
 
 The installer released alongside this repository bundles these ROMs.
 
+## 4. The COM plumbing adapted from the BSTSpeech wrapper
+
+These files in `src/` are adapted from the BSTSpeech SAPI5 wrapper by Gozaltech
+([gozaltech/BstSpeech-sapi](https://github.com/gozaltech/BstSpeech-sapi)) and are not original
+to this project:
+
+- `prose_com.hpp`, `prose_com.cpp`, `prose_registry.hpp`, `prose_registry.cpp`,
+  `prose_utils.hpp`, `prose_datakey.hpp` and `prose_datakey.cpp`, which follow the originals
+  closely, with the names changed;
+- `prose_enum_tokens.hpp`, `prose_enum_tokens.cpp`, `prose_token.hpp` and `prose_token.cpp`,
+  which are adaptations of the originals.
+
+They carry no per-file copyright header, and they are *not* covered by the MIT License: they
+stay under the terms of the original, which this project cannot change. The upstream
+repository does not name a license (its README calls the wrapper open source software and
+says no more), so nothing here grants one. If you reuse these files, check the BSTSpeech
+wrapper's own terms.
+
 ## Summary
 
 | Component | License | Redistributable |
 |---|---|---|
-| `src/`, `tools/`, `installer/`, `docs/` | MIT | Yes, under the MIT License |
+| `src/` (except section 4), `tools/`, `installer/`, `docs/` | MIT | Yes, under the MIT License |
 | `bin/prose2000/ProseHost.exe` | BSD 3-Clause | Yes, keep the notice |
 | `bin/prose2000/roms/*` | Proprietary (Telesensory/Speech Plus) | No license granted |
+| The `src/` files listed in section 4 | The original's (none stated upstream) | Check the original's terms |
