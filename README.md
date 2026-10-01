@@ -141,6 +141,9 @@ which is how the tools run out of a build tree.
 
 ## Licensing
 
+The code written for this project is licensed under the MIT License (see `LICENSE`);
+`NOTICE.md` lists the third-party material that it does not cover.
+
 The Prose 2000 hardware and firmware were developed by Telesensory Systems Inc. and Speech
 Plus. **The firmware remains proprietary** and is not covered by any source licence here.
 The ROM images are packaged from an existing NVDA add-on; nothing in this repository grants

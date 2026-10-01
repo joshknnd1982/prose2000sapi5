@@ -7,8 +7,8 @@ before redistributing any of it.
 
 Everything under `src/`, `tools/`, `installer/`, `docs/`, and the build scripts.
 
-Copyright (c) 2026 Josh Kennedy. Licensed under the **GNU General Public License,
-version 2** — see [LICENSE](LICENSE).
+Copyright (c) 2026 Josh Kennedy. Licensed under the **MIT License** — see
+[LICENSE](LICENSE).
 
 ## 2. `ProseHost.exe` — the emulator
 
@@ -32,7 +32,8 @@ with thanks to Kevin Horton) and from David Sexton's DoubleTalk PC project.
 
 These are the original Prose 2000 firmware images, **proprietary to Telesensory Systems
 Inc. / Speech Plus**. They are *not* covered by the BSD license above, and they are not
-covered by the GPL either. The upstream add-on's own license file states this plainly:
+covered by the MIT License either. The upstream add-on's own license file states this
+plainly:
 
 > The original Prose firmware is proprietary to Telesensory Systems Inc./Speech Plus and is
 > not covered by this license.
@@ -48,6 +49,6 @@ The installer released alongside this repository bundles these ROMs.
 
 | Component | License | Redistributable |
 |---|---|---|
-| `src/`, `tools/`, `installer/`, `docs/` | GPL v2 | Yes, under GPL v2 |
+| `src/`, `tools/`, `installer/`, `docs/` | MIT | Yes, under the MIT License |
 | `bin/prose2000/ProseHost.exe` | BSD 3-Clause | Yes, keep the notice |
 | `bin/prose2000/roms/*` | Proprietary (Telesensory/Speech Plus) | No license granted |
